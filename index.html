@@ -6,18 +6,47 @@
     <title>Admission Checker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
             text-align: center;
-            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 150px;
+            height: auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         input {
             padding: 10px;
             margin: 10px;
             font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
         }
         button {
-            padding: 10px;
+            padding: 10px 20px;
             font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
         #result {
             margin-top: 20px;
@@ -27,6 +56,9 @@
     </style>
 </head>
 <body>
+    <header>
+        <img src="KI_logo.png" alt="International Class Logo">
+    </header>
     <h1>Check Your Admission Status</h1>
     <input type="text" id="studentNumber" placeholder="Enter your student number">
     <button onclick="checkAdmission()">Check</button>
