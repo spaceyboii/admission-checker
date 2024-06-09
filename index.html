@@ -7,13 +7,14 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
+            background: linear-gradient(to bottom, #33369A, #272842);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            transition: background-color 1s;
         }
         header {
             text-align: center;
@@ -24,7 +25,7 @@
             height: auto;
         }
         h1 {
-            color: #333;
+            color: #fff;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -52,6 +53,17 @@
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
+            color: #fff;
+        }
+        #loading {
+            display: none;
+            margin-top: 20px;
+        }
+        .tint-accepted {
+            background: linear-gradient(to bottom, #33369A, #272842, rgba(0, 255, 0, 0.2));
+        }
+        .tint-not-accepted {
+            background: linear-gradient(to bottom, #33369A, #272842, rgba(255, 0, 0, 0.2));
         }
     </style>
 </head>
@@ -63,20 +75,32 @@
     <input type="text" id="studentNumber" placeholder="Enter your student number">
     <button onclick="checkAdmission()">Check</button>
     <div id="result"></div>
+    <div id="loading">Loading...</div>
 
     <script>
         function checkAdmission() {
             const studentNumber = document.getElementById('studentNumber').value;
             const admittedStudents = ['12345', '67890', '11121']; // Replace with actual student numbers
             const result = document.getElementById('result');
+            const loading = document.getElementById('loading');
+            const body = document.body;
 
-            if (admittedStudents.includes(studentNumber)) {
-                result.textContent = 'Congratulations! You are admitted.';
-                result.style.color = 'green';
-            } else {
-                result.textContent = 'Sorry, you are not admitted.';
-                result.style.color = 'red';
-            }
+            result.textContent = '';
+            loading.style.display = 'block';
+            body.classList.remove('tint-accepted', 'tint-not-accepted');
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+                if (admittedStudents.includes(studentNumber)) {
+                    result.textContent = 'Congratulations! You are admitted.';
+                    result.style.color = 'green';
+                    body.classList.add('tint-accepted');
+                } else {
+                    result.textContent = 'Sorry, you are not admitted.';
+                    result.style.color = 'red';
+                    body.classList.add('tint-not-accepted');
+                }
+            }, 3000);
         }
     </script>
 </body>
