@@ -58,12 +58,22 @@
         #loading {
             display: none;
             margin-top: 20px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .tint-accepted {
-            background: linear-gradient(to bottom, #33369A, #272842, rgba(0, 255, 0, 0.2));
+            background: linear-gradient(to bottom, #33369A, #272842, #006400);
         }
         .tint-not-accepted {
-            background: linear-gradient(to bottom, #33369A, #272842, rgba(255, 0, 0, 0.2));
+            background: linear-gradient(to bottom, #33369A, #272842, #8B0000);
         }
     </style>
 </head>
@@ -75,7 +85,7 @@
     <input type="text" id="studentNumber" placeholder="Enter your student number">
     <button onclick="checkAdmission()">Check</button>
     <div id="result"></div>
-    <div id="loading">Loading...</div>
+    <div id="loading"></div>
 
     <script>
         function checkAdmission() {
