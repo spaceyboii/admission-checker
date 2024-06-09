@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Your Admission Status</h1>
+    <input type="text" id="studentNumber" placeholder="Enter your student number">
+    <button onclick="checkAdmission()">Check</button>
+    <div id="result"></div>
+
+    <script>
+        function checkAdmission() {
+            const studentNumber = document.getElementById('studentNumber').value;
+            const admittedStudents = ['12345', '67890', '11121']; // Replace with actual student numbers
+            const result = document.getElementById('result');
+
+            if (admittedStudents.includes(studentNumber)) {
+                result.textContent = 'Congratulations! You are admitted.';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Sorry, you are not admitted.';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
